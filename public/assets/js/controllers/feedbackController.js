@@ -6,19 +6,16 @@ angular.module('feedbackControl', ['feedbackService'])
 		
 		vm.tagline = 'Its working!';
 
-	    vm.formData = {} ;
-		vm.dbdata = {} ;
-
 		vm.addFeedback = function() 
 		{
 			vm.processing = true ;
 
-			Feedback.get()
+			Feedback.get(vm.formData)
 				.success(function(data)
 				{
 					vm.processing = false ;
-					vm.dbdata = data ;
-					alert('BACK!') ;
+					vm.formData = {} ;
+					alert(data.message) ;
 				}) ;
 		};
 					

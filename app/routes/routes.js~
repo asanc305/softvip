@@ -11,20 +11,30 @@ module.exports = function(app, express)
 
 	apiRouter.route('/feedback')
 
-		.get(function(err, feedback) 
+		.post(function(req, res) 
 		{
-			Feedback.find(function(err, feedback)
-			{
-				if (err) res.send(err) ;
-				
-				res.json(feedback) ;
+			var feedback = new Feedback() ;
+
+			feedback.criteria1 = req.body.c1 ;
+			feedback.criteria2 = req.body.c2 ;
+			feedback.criteria3 = req.body.c3 ;
+			feedback.criteria4 = req.body.c4 ;
+			feedback.criteria5 = req.body.c5 ;
+			feedback.comment = req.body.comment ;
+
+			feedback.save(function(err) {
+				if (err) {
+					return res.send(err) ;
+				}
+
+				res.json({ message: 'Feedback Saved!' }) ;
 			});
+	
 		});
 		
 		
 	return apiRouter
 };
-
 
 
 		

@@ -45,10 +45,10 @@
 	<input type="radio" ng-model="fcontrol.formData.c5" value="1"> 1 &nbsp &nbsp &nbsp &nbsp 
 	<input type="radio" ng-model="fcontrol.formData.c5" value="2"> 2 &nbsp &nbsp &nbsp &nbsp 
 	<input type="radio" ng-model="fcontrol.formData.c5" value="3"> 3 &nbsp &nbsp &nbsp &nbsp 
-	<input type="radio" ng-model="fcontrol.formData.c5" value="4"> 4 <br><br>Comments Optional<br>
+	<input type="radio" ng-model="fcontrol.formData.c5" value="4"> 4 <br><br><br>Comments Optional<br>
  
 	
-	<textarea rows="10" cols="65" name = "box" ng-model="fControl.formData.comment"></textarea><br> 
+	<textarea rows="10" cols="65" ng-model="fControl.formData.comment"></textarea><br> 
 	 
 	<button type="submit" class="btn btn-submit">Submit</button>
 </div>

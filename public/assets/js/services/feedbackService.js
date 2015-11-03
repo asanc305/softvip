@@ -5,9 +5,9 @@ angular.module('feedbackService', [])
 
         var feedbackFactory = {};
 
-        feedbackFactory.get = function() 
+        feedbackFactory.get = function(formData) 
 	{
-            return $http.get('/api/feedback');
+            return $http.post('/api/feedback', formData);
         };
 
         return feedbackFactory;

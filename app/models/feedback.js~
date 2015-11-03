@@ -8,7 +8,7 @@ var FeedbackSchema = new Schema({
 	criteria3: {type: Number},
 	criteria4: {type: Number},
 	criteria5: {type: Number},
-	comment: {type: String}
+	comment: [String]
 });
 
 module.exports = mongoose.model('Feedback', FeedbackSchema) ;

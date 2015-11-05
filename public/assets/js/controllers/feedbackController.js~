@@ -15,7 +15,7 @@ angular.module('feedbackControl', ['feedbackService'])
 				{
 					vm.processing = false ;
 					vm.formData = {} ;
-					alert('BACK!') ;
+					alert(data.message) ;
 				}) ;
 		};
 					

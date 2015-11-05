@@ -4,20 +4,20 @@ angular.module('feedbackControl', ['feedbackService'])
     {
 	    var vm = this ;	
 		
-		vm.tagline = 'Its working!';
+		  vm.tagline = 'Its working!';
 
-		vm.addFeedback = function() 
-		{
-			vm.processing = true ;
+		  vm.addFeedback = function() 
+		  {
+			  vm.processing = true ;
 
-			Feedback.get(vm.formData)
-				.success(function(data)
-				{
-					vm.processing = false ;
-					vm.formData = {} ;
-					alert(data.message) ;
-				}) ;
-		};
+			  Feedback.get(vm.formData)
+				  .success(function(data)
+				  {
+					  vm.processing = false ;
+					  vm.formData = {} ;
+					  alert(data.message) ;
+				  }) ;
+		  };
 					
 	
     });

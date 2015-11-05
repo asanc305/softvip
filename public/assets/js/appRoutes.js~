@@ -32,7 +32,13 @@ angular.module('appRoutes', ['ngRoute'])
 			templateUrl: 'app/views/pages/feedbackForm.html',
 			controller: 'feedbackController',
 			controllerAs: 'fcontrol'
-		});
+		})
+
+    .when('/question', {
+      templateUrl: 'app/views/pages/questionForm.html',
+      controller: 'reportContoller',
+      controllerAs: 'qcontrol'
+    });
 
 	$locationProvider.html5Mode(true);
 

@@ -1,0 +1,21 @@
+<div>
+<h5 style="font-size:200%"> {{ qcontrol.tagline}} </h5>
+
+<form name="question" ng-submit="qcontrol.addQuestion()">
+  <h4>
+  <p> Question </p>
+  <textarea rows="10" cols="100" ng-model="qcontrol.formData.question" ></textarea><br><br><br><br>
+
+  Form Type <br>
+  <input type="radio" value="pe" ng-model="qcontrol.formData.ft"> Peer Evaluation &nbsp &nbsp &nbsp &nbsp
+  <input type="radio" value="fb" ng-model="qcontrol.formData.ft"> Feedback <br><br><br>
+
+  Question Type <br>
+  <input type="radio" value="sb" ng-model="qcontrol.formData.qt"> Scale &nbsp &nbsp &nbsp &nbsp
+  <input type="radio" value="tf" ng-model="qcontrol.formData.qt"> True/False &nbsp &nbsp &nbsp &nbsp
+  <input type="radio" value="sa" ng-model="qcontrol.formData.qt"> Short Answer <br><br><br>
+
+  <input type="checkbox" value="1" ng-model="qcontrol.formData.mo"> Make Optional</h4><br><br>
+
+  <button type="submit" class="btn btn-submit"> Submit</button>
+</div>

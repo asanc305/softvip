@@ -1,0 +1,21 @@
+<div>
+<h5 style="font-size:200%"> Question Submission</h5>
+
+<form name="question" >
+  <h4>
+  <p> Question </p>
+  <textarea rows="10" cols="100" ></textarea><br><br><br><br>
+
+  Form Type <br>
+  <input type="radio" value="pe"> Peer Evaluation &nbsp &nbsp &nbsp &nbsp
+  <input type="radio" value="fb"> Feedback <br><br>
+
+  Question Type <br>
+  <input type="radio" value="sb"> Scale &nbsp &nbsp &nbsp &nbsp
+  <input type="radio" value="tf"> True/False &nbsp &nbsp &nbsp &nbsp
+  <input type="radio" value="sa"> Short Answer <br><br>
+
+  <input type="checkbox" value="1"> Make Optional</h4><br><br>
+
+  <button type="submit"> Submit</button>
+</div>

@@ -1,5 +1,6 @@
 var bodyParser		= require('body-parser');    // get body-parser
 var Feedback		= require('../models/feedback');
+var Question = require('../models/question');
 var config		= require('../../config');
 
 
@@ -31,6 +32,26 @@ module.exports = function(app, express)
 			});
 	
 		});
+
+  apiRouter.route('/question')
+  
+    .post(function(req, res)
+    {
+      var question = new Question() ;
+      
+      question.question = req.body.question ;
+      question.formType = req.body.ft ;
+      question.questionType = req.body.qt ;
+      question.makeOptional = req.body.mo ;
+
+      question.save(function(err) {
+				if (err) {
+					return res.send(err) ;
+				}
+
+				res.json({ message: 'Feedback Saved!' }) ;
+			});
+    });
 		
 		
 	return apiRouter

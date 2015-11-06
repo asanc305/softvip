@@ -4,9 +4,14 @@ angular.module('feedbackService', [])
     {
       var feedbackFactory = {};
 
-      feedbackFactory.get = function(formData) 
+      feedbackFactory.update = function(formData) 
 	    {
         return $http.post('/api/feedback', formData);
+      };
+
+      feedbackFactory.get = function()
+      {
+        return $http.get('/api/question') ;
       };
       return feedbackFactory;
     });

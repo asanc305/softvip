@@ -4,13 +4,23 @@ angular.module('feedbackControl', ['feedbackService'])
     {
 	    var vm = this ;	
 		
+    
 		  vm.tagline = 'Its working!';
+
+      Feedback.get()
+        .success(function(data)
+        {
+          vm.questions = data ;
+          console.log(data) ;
+        }) ;
+
+      
 
 		  vm.addFeedback = function() 
 		  {
 			  vm.processing = true ;
 
-			  Feedback.get(vm.formData)
+			  Feedback.update(vm.formData)
 				  .success(function(data)
 				  {
 					  vm.processing = false ;

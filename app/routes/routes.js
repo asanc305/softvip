@@ -33,7 +33,7 @@ module.exports = function(app, express)
 	
 		});
 
-  apiRouter.route('/question')
+  /*apiRouter.route('/question')
   
     .post(function(req, res)
     {
@@ -51,8 +51,18 @@ module.exports = function(app, express)
 
 				res.json({ message: 'Feedback Saved!' }) ;
 			});
+    });*/
+
+  apiRouter.route('/question')
+  
+    .get(function(req, res) 
+    {
+      Question.find({formType: 'fb'}, function(err, question)
+      {
+        if (err) res.send(err) ;
+        res.json(question) ;
+      });
     });
-		
 		
 	return apiRouter
 };

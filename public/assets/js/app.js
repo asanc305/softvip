@@ -1,4 +1,4 @@
-angular.module('mainApp', ['appRoutes', 'reportControl', 'feedbackControl', 'questionControl', 'reportService', 'feedbackService', 'questionService'])
+angular.module('mainApp', ['appRoutes', 'reportControl', 'feedbackControl', 'questionControl', 'reportService', 'feedbackService'])
 
 .controller('mainController', function() {
 	var vm = this;

@@ -2,14 +2,16 @@ angular.module('feedbackService', [])
 
     .factory('Feedback', function($http)
     {
+      var feedbackFactory = {};
 
-        var feedbackFactory = {};
+      feedbackFactory.update = function(formData) 
+	    {
+        return $http.post('/api/feedback', formData);
+      };
 
-        feedbackFactory.get = function(formData) 
-	{
-            return $http.post('/api/feedback', formData);
-        };
-
-        return feedbackFactory;
-
+      feedbackFactory.get = function()
+      {
+        return $http.get('/api/question:fb') ;
+      };
+      return feedbackFactory;
     });

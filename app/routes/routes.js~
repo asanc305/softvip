@@ -1,5 +1,6 @@
 var bodyParser		= require('body-parser');    // get body-parser
 var Feedback		= require('../models/feedback');
+var Question = require('../models/question');
 var config		= require('../../config');
 
 
@@ -32,7 +33,7 @@ module.exports = function(app, express)
 	
 		});
 
-  apiRouter.route('/question')
+  /*apiRouter.route('/question')
   
     .post(function(req, res)
     {
@@ -50,8 +51,18 @@ module.exports = function(app, express)
 
 				res.json({ message: 'Feedback Saved!' }) ;
 			});
+    });*/
+
+  apiRouter.route('/question/:qt')
+  
+    .get(function(req, res) 
+    {
+      Question.find({formType: req.params.qt}, function(err, question)
+      {
+        if (err) res.send(err) ;
+        res.json(question) ;
+      });
     });
-		
 		
 	return apiRouter
 };

@@ -15,13 +15,13 @@ module.exports = function(app, express)
 		.post(function(req, res) 
 		{
 			var feedback = new Feedback() ;
-
-			feedback.criteria1 = req.body.c1 ;
-			feedback.criteria2 = req.body.c2 ;
-			feedback.criteria3 = req.body.c3 ;
-			feedback.criteria4 = req.body.c4 ;
-			feedback.criteria5 = req.body.c5 ;
-			feedback.comment = req.body.comment ;
+      var obj = req.body ;
+      
+      for (var i in obj)
+      {
+        feedback.answers.push({ question: obj[i].question, answer: obj[i].answer }) ;
+        console.log(obj[i]) ;
+      }
 
 			feedback.save(function(err) {
 				if (err) {
@@ -33,7 +33,7 @@ module.exports = function(app, express)
 	
 		});
 
-  /*apiRouter.route('/question')
+  apiRouter.route('/question')
   
     .post(function(req, res)
     {
@@ -51,9 +51,7 @@ module.exports = function(app, express)
 
 				res.json({ message: 'Feedback Saved!' }) ;
 			});
-    });*/
-
-  apiRouter.route('/question')
+    })
   
     .get(function(req, res) 
     {

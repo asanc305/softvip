@@ -3,7 +3,10 @@ angular.module('feedbackControl', ['feedbackService'])
     .controller('feedbackController', function(Feedback) 
     {
 	    var vm = this ;	
-		
+		  vm.questions ;
+      vm.sb = [] ;
+      vm.tf = [] ;
+      vm.sa = [] ;
     
 		  vm.tagline = 'Its working!';
 
@@ -11,18 +14,53 @@ angular.module('feedbackControl', ['feedbackService'])
         .success(function(data)
         {
           vm.questions = data ;
-          console.log(data) ;
-        }) ;
+          
+        }) ; 
 
+
+      /*
+      Feedback.get()
+        .success(function(data)
+        {
+          vm.questions = data ;
+          console.log(data) ;
+
+          for (var i in vm.questions)
+          {
+            var obj = vm.questions[i] ;
+            
+            if (obj.questionType == "sb")
+            {
+              vm.sb.push({"question": obj.question, "answer": ""
+                }) ;
+            }
+            else if (obj.questionType == "tf")
+            {
+              vm.tf.push({"question": obj.question, "answer": ""
+                }) ;
+            } 
+            else if (obj.questionType == "sa")
+            {
+              vm.sa.push({"question": obj.question, "answer": ""
+                }) ;
+            }
+          }
+        }) ;  */   
+      
 		  vm.addFeedback = function() 
 		  {
 			  vm.processing = true ;
 
-			  Feedback.update(vm.formData)
+			  Feedback.update(vm.questions)
 				  .success(function(data)
 				  {
 					  vm.processing = false ;
-					  vm.formData = {} ;
+					  Feedback.get()
+              .success(function(data)
+              {
+                vm.questions = data ;
+          
+              }) ; 
 					  alert(data.message) ;
 				  }) ;
 		  };

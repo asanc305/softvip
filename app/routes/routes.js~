@@ -33,7 +33,7 @@ module.exports = function(app, express)
 	
 		});
 
-  /*apiRouter.route('/question')
+  apiRouter.route('/question')
   
     .post(function(req, res)
     {
@@ -61,7 +61,7 @@ module.exports = function(app, express)
         if (err) res.send(err) ;
         res.json(question) ;
       });
-    });*/
+    });
 
   apiRouter.route('/question/:formType')
 

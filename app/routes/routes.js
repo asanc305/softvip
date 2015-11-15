@@ -1,5 +1,4 @@
 var bodyParser		= require('body-parser');    // get body-parser
-var Feedback		= require('../models/feedback');
 var Question = require('../models/question');
 var config		= require('../../config');
 
@@ -9,29 +8,6 @@ module.exports = function(app, express)
 {
 
 	var apiRouter = express.Router();
-
-	apiRouter.route('/feedback')
-
-		.post(function(req, res) 
-		{
-			var feedback = new Feedback() ;
-      var obj = req.body ;
-      
-      for (var i in obj)
-      {
-        feedback.answers.push({ question: obj[i].question, answer: obj[i].answer }) ;
-        console.log(obj[i]) ;
-      }
-
-			feedback.save(function(err) {
-				if (err) {
-					return res.send(err) ;
-				}
-
-				res.json({ message: 'Feedback Saved!' }) ;
-			});
-	
-		});
 
   apiRouter.route('/question')
   
@@ -49,13 +25,12 @@ module.exports = function(app, express)
 					return res.send(err) ;
 				}
 
-				res.json({ message: 'Feedback Saved!' }) ;
+				res.json({ message: 'Question Saved!' }) ;
 			});
     })
   
     .get(function(req, res) 
     {
-      //Question.find({formType: 'fb'}, function(err, question)
       Question.find(function(err, question)
       {
         if (err) res.send(err) ;

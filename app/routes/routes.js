@@ -55,14 +55,26 @@ module.exports = function(app, express)
   
     .get(function(req, res) 
     {
-      Question.find({formType: 'fb'}, function(err, question)
+      //Question.find({formType: 'fb'}, function(err, question)
+      Question.find(function(err, question)
       {
         if (err) res.send(err) ;
         res.json(question) ;
       });
     });
-		
-	return apiRouter
+
+  apiRouter.route('/question/:formType')
+
+  .get(function(req, res)
+  {
+    Question.find({formType: req.params.formType}, function(err, question)
+    {
+      if (err) res.send(err) ;
+      res.json(question) ;
+    });
+  });
+
+  return apiRouter
 };
 
 

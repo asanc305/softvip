@@ -1,38 +1,39 @@
-<div class="scale" > 
-<h5 style="font-size:200%">General Feedback <br><br></h5>
+<h1 style="font-size:200%">General Feedback </h1><br><br>
 
-<h4> Scale </h4><br> 
-0 - {{ fcontrol.tagline }} <br>
-1 - {{ question.question }} <br>
-2 - Neither <br>
-3 - Agree <br>
-4 - Strongly Agree <br><br>
+<div class="scale" > 
+  <h2 style="font-size:150%">Scale </h2><br> 
+  <p style="font-size:100%; font-weight:bold">
+    0 - Strongly Disagree <br>
+    1 - Disagree <br>
+    2 - Neither <br>
+    3 - Agree <br>
+    4 - Strongly Agree </p><br><br>
 </div>
 
 <form name="feedback" ng-submit="fcontrol.addFeedback(feedback.$valid)" novalidate>
 
-  <div class="scale-based" ng-repeat="question in fcontrol.questions" ng-if="question.questionType == 'sb'">
-    {{ question.question }} <br><br>
-    <input type="radio" value="0" ng-model="question.answer" required> 0 &nbsp &nbsp &nbsp &nbsp
-    <input type="radio" value="1" ng-model="question.answer" required> 1 &nbsp &nbsp &nbsp &nbsp
-    <input type="radio" value="2" ng-model="question.answer" required> 2 &nbsp &nbsp &nbsp &nbsp
-    <input type="radio" value="3" ng-model="question.answer" required> 3 &nbsp &nbsp &nbsp &nbsp
-    <input type="radio" value="4" ng-model="question.answer" required> 4 <br><br>
+  <div class="scale-based"ng-repeat="question in fcontrol.questions" ng-if="question.questionType == 'sb'">
+    <p style="font-size:100%; font-weight:bold"> {{ question.question }} <br><br>
+      <input type="radio" value="0" ng-model="question.answer" required> 0 &nbsp &nbsp &nbsp &nbsp
+      <input type="radio" value="1" ng-model="question.answer" required> 1 &nbsp &nbsp &nbsp &nbsp
+      <input type="radio" value="2" ng-model="question.answer" required> 2 &nbsp &nbsp &nbsp &nbsp
+      <input type="radio" value="3" ng-model="question.answer" required> 3 &nbsp &nbsp &nbsp &nbsp
+      <input type="radio" value="4" ng-model="question.answer" required> 4 </p><br><br>
   </div>
 
-<h4> True-False <br><br></h4>
-<div class="true-false" ng-repeat="question in fcontrol.questions" ng-if="question.questionType == 'tf'">
-{{ question.question }} <br><br>
-<input type="radio" value="true" ng-model="question.answer" required> True &nbsp &nbsp &nbsp &nbsp
-<input type="radio" value="false" ng-model="question.answer" required> False <br><br>
-</div>
+  <h2 style="font-size:150%"> True/False </h2><br> 
+  <div class="true-false" ng-repeat="question in fcontrol.questions" ng-if="question.questionType == 'tf'">
+    <p style="font-size:100%; font-weight:bold"> {{ question.question }} <br><br>
+    <input type="radio" value="true" ng-model="question.answer" required> True &nbsp &nbsp &nbsp &nbsp
+    <input type="radio" value="false" ng-model="question.answer" required> False </p><br><br>
+  </div>
 
-<h4> Short-Answer </h4>
-<div class="short-answer" ng-repeat="question in fcontrol.questions" ng-if="question.questionType == 'sa'">
-{{ question.question }} <br><br>
-<textarea rows="10" cols="100" ng-model="question.answer" required></textarea><br><br><br>
-</div>
+  <h2 style="font-size:150%"> Short Answer </h2><br>
+  <div class="short-answer" ng-repeat="question in fcontrol.questions" ng-if="question.questionType == 'sa'">
+    <p style="font-size:100%; font-weight:bold"> {{ question.question }} </p><br><br>
+    <textarea rows="10" cols="100" ng-model="question.answer" required></textarea><br><br><br>
+  </div>
 
-<button type="submit" class="btn btn-submit" ng-disabled="feedback.$invalid"> Submit</button-->
-
+  <button type="submit" class="btn btn-submit" ng-disabled="feedback.$invalid"> Submit</button-->
+</form>
 
